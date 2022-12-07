@@ -1,0 +1,22 @@
+name: ci-cd setup
+on:
+  push:
+    branches: [main]
+
+jobs:
+  lintTest:
+    name: Line
+    runs-on: ubuntu-latest
+    step:
+      - name: CLone Repository
+        users: actions/checkout@v2
+      - name: Install Dependency
+        run: |
+          echo "Running Installing Dependency"
+          npm install
+      - name: Run Liniting
+      run : |
+        echo "Running Liniting test.."
+        npm run lint
+      env:
+      CI: true
